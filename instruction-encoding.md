@@ -53,8 +53,8 @@ Register to register instructions (arithmetic/logic) (addr, subl, srl, sll...).
 ```
 
 ### I-Type
-Immediate to register and loading instructions (more operations, less precision)
-(lb, lh, lw, ld, addi, andi).
+Immediate to register and immediates logic and arithmetic instructions
+(lib, lih, liw, lid, addi, andi...).
 
 ```text
 31         20 19 15 14   12 11 7 6     0
@@ -63,8 +63,8 @@ Immediate to register and loading instructions (more operations, less precision)
 +--------------------------------------+
 ```
 
-### S-Type
-Storing data in system memory (stoi, stor, ).
+### M-Type
+Loading and Storing data in system memory (lmb, lmh, lmw, lmd, smb, smh, smw, smd...).
 
 ```text
 31      25 24 20 19 15 14   12 11     7 6     0
@@ -72,6 +72,9 @@ Storing data in system memory (stoi, stor, ).
 |imm[11:5]| rs2 | rs1 |funct3 |imm[4:0]|OpCode|
 +---------------------------------------------+
 ```
+
+Immediate is used to offset memory locations not to store immediate values in system memory. Storing
+to memory requires a register that stores that value, so first do lid, then call smd.
 
 ### U-Type
 Loading larger immediates into a register with targets (lui, lli, lmi...).
