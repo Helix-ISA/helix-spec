@@ -25,7 +25,7 @@ The instructions are ordered in this way so in a later ISA version we can add co
 
 ---
 
-## Instruction Blocks
+## Instruction Partitions
 
 * opcode: The instruction type
 * rs1-2: Source registers
